@@ -1,8 +1,9 @@
 'use strict';
 
 function addPropIfNotExists(str, obj) {
-    if(!(str in obj)) obj[str] = 'new';
-    return obj;
+    var newObj = obj;
+    if(!(str in newObj)) newObj[str] = 'new';
+    return newObj;
 }
 
 module.exports = addPropIfNotExists;
