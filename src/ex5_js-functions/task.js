@@ -4,7 +4,8 @@ let Calculator = (function() {
     let x = 0;
     
     function add(y) {
-        x += y;
+
+        x += y === undefined ? 0 : y;
         return add;
     }
 
@@ -13,7 +14,7 @@ let Calculator = (function() {
     };
 
     function subtract(y) {
-        x -= y;
+        x -= y === undefined ? 0 : y;
         return subtract;
     }
 
@@ -22,7 +23,7 @@ let Calculator = (function() {
     };
     
     function multiply(y) {
-        x *= y;
+        x *= y === undefined ? 0 : y;
         return multiply;
     }
 
@@ -31,7 +32,7 @@ let Calculator = (function() {
     };
 
     function divide(y) {
-        x /= y;
+        x /= y === undefined ? 0 : y;
         return divide;
     }
 
@@ -39,7 +40,7 @@ let Calculator = (function() {
         return x;
     };
 
-    function getResult(y) {
+    function getResult() {
         return +x;
     }
 
