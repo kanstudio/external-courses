@@ -45,7 +45,8 @@ let Calculator = (function() {
     }
 
     function reset() {
-        return x = 0;
+        x = 0;
+        return x;
     }
 
     return {
@@ -56,6 +57,6 @@ let Calculator = (function() {
         getResult: getResult,
         reset: reset
     };
-})();
+}());
 
 module.exports = Calculator;
