@@ -30,12 +30,12 @@ let Calculator = (function() {
         return x;
     };
 
-    function devide(y) {
+    function divide(y) {
         x /= y;
-        return devide;
+        return divide;
     }
 
-    devide.toString = function() {
+    divide.toString = function() {
         return x;
     };
 
@@ -51,7 +51,7 @@ let Calculator = (function() {
         add: add,
         subtract: subtract,
         multiply: multiply,
-        devide: devide,
+        divide: divide,
         getResult: getResult,
         reset: reset
     };
