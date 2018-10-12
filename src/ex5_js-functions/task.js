@@ -23,7 +23,7 @@ let Calculator = (function() {
     };
     
     function multiply(y) {
-        x *= y === undefined ? 0 : y;
+        x *= y === undefined ? 1 : y;
         return multiply;
     }
 
@@ -32,7 +32,7 @@ let Calculator = (function() {
     };
 
     function divide(y) {
-        x /= y === undefined ? 0 : y;
+        x /= y === undefined ? 1 : y;
         return divide;
     }
 
