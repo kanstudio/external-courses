@@ -4,7 +4,6 @@ let Calculator = (function() {
     let x = 0;
     
     function add(y) {
-
         x += y === undefined ? 0 : y;
         return add;
     }
