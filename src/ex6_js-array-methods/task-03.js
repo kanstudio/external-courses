@@ -1,8 +1,10 @@
 'use strict';
 
 function everyArr(arr, callback) {
-    let result = arr.every(callback);
-    return result;
+    for(let i=0; i<arr.length; i++) {
+        if(!callback(arr[i], i, arr)) return false;
+    }
+    return true;
 }
 
 module.exports = everyArr;

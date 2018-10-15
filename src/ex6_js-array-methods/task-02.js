@@ -1,8 +1,10 @@
 'use strict';
 
 function someArr(arr, callback) {
-    let result = arr.some(callback);
-    return result;
+    for(let i=0; i<arr.length; i++) {
+        if(callback(arr[i], i, arr)) return true;
+    }
+    return false;
 }
 
 module.exports = someArr;
