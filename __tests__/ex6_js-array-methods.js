@@ -5,19 +5,19 @@ describe('Ex6. JS Array methods', () => {
         const arr = ['a', 'b', 'c', 'd', 'e'];
 
         it("should copy from element 1 and to element 4 (without including)", () => {
-            expect(code(arr, 1, 4)).toBe(['b', 'c', 'd']);
+            expect(code(arr, 1, 4)).toEqual(['b', 'c', 'd']);
         });
 
         it("should copy from element 2 and to end of array", () => {
-            expect(code(arr, 2)).toBe(['c', 'd', 'e']);
+            expect(code(arr, 2)).toEqual(['c', 'd', 'e']);
         });
 
         it("should copy whole array", () => {
-            expect(code(arr)).toBe(['a', 'b', 'c', 'd', 'e']);
+            expect(code(arr)).toEqual(['a', 'b', 'c', 'd', 'e']);
         });
 
         it("should copy from element 2 and to element 4 (without including)", () => {
-            expect(code(arr, -4, -2)).toBe(['b', 'c']);
+            expect(code(arr, -4, -2)).toEqual(['b', 'c']);
         });
     });
 
@@ -49,11 +49,11 @@ describe('Ex6. JS Array methods', () => {
         const arr = [1, -5, 3, -1, 2];
 
         it("should return new array with elements for which callback returns 'true'", () => {
-            expect(code(arr, function(item, i, array) {return (item*i-array.length) > 0;})).toBe([3, 2]);
+            expect(code(arr, function(item, i, array) {return (item*i-array.length) > 0;})).toEqual([3, 2]);
         });
 
         it("should return new array with elements for which callback returns 'true'", () => {
-            expect(code(arr, function(item, i, array) {return (item*i+array.length) > 0;})).toBe([1, 3, -1, 2]);
+            expect(code(arr, function(item, i, array) {return (item*i+array.length) > 0;})).toEqual([1, 3, -1, 2]);
         });
     });
 
@@ -61,11 +61,11 @@ describe('Ex6. JS Array methods', () => {
         const arr = [1, -5, 3, -1, 2];
 
         it("should return new array with elements which callback returns", () => {
-            expect(code(arr, function(item, i, array) {return item*i-array.length;})).toBe([-5, -10, 1, -8, 3]);
+            expect(code(arr, function(item, i, array) {return item*i-array.length;})).toEqual([-5, -10, 1, -8, 3]);
         });
 
         it("should return new array with elements which callback returns", () => {
-            expect(code(arr, function(item, i, array) {return item*i+array.length;})).toBe([5, 0, 11, 2, 13]);
+            expect(code(arr, function(item, i, array) {return item*i+array.length;})).toEqual([5, 0, 11, 2, 13]);
         });
     });
 
