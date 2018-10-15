@@ -4,19 +4,10 @@ describe('Ex6. JS Array methods', () => {
     task('01', code => {
         const arr = ['a', 'b', 'c', 'd', 'e'];
 
-        it("should copy from element 1 and to element 4 (without including)", () => {
+        it("should copy elements from begin and to end (without including)", () => {
             expect(code(arr, 1, 4)).toEqual(['b', 'c', 'd']);
-        });
-
-        it("should copy from element 2 and to end of array", () => {
             expect(code(arr, 2)).toEqual(['c', 'd', 'e']);
-        });
-
-        it("should copy whole array", () => {
             expect(code(arr)).toEqual(['a', 'b', 'c', 'd', 'e']);
-        });
-
-        it("should copy from element 2 and to element 4 (without including)", () => {
             expect(code(arr, -4, -2)).toEqual(['b', 'c']);
         });
     });
@@ -26,9 +17,6 @@ describe('Ex6. JS Array methods', () => {
 
         it("should return 'true' if callback returns 'true' for one of all elements", () => {
             expect(code(arr, function(item, i, array) {return (item*i-array.length) > 0;})).toBe(true);
-        });
-
-        it("should return 'true' if callback returns 'true' for one of all elements", () => {
             expect(code(arr, function(item, i, array) {return (item*i-3*array.length) > 0;})).toBe(false);
         });
     });
@@ -38,9 +26,6 @@ describe('Ex6. JS Array methods', () => {
 
         it("should return 'true' if callback returns 'true' for all elements", () => {
             expect(code(arr, function(item, i, array) {return (item*i-array.length) > 0;})).toBe(false);
-        });
-
-        it("should return 'true' if callback returns 'true' for all elements", () => {
             expect(code(arr, function(item, i, array) {return (item*i+array.length) > 0;})).toBe(true);
         });
     });
@@ -50,9 +35,6 @@ describe('Ex6. JS Array methods', () => {
 
         it("should return new array with elements for which callback returns 'true'", () => {
             expect(code(arr, function(item, i, array) {return (item*i-array.length) > 0;})).toEqual([3, 2]);
-        });
-
-        it("should return new array with elements for which callback returns 'true'", () => {
             expect(code(arr, function(item, i, array) {return (item*i+array.length) > 0;})).toEqual([1, 3, -1, 2]);
         });
     });
@@ -62,9 +44,6 @@ describe('Ex6. JS Array methods', () => {
 
         it("should return new array with elements which callback returns", () => {
             expect(code(arr, function(item, i, array) {return item*i-array.length;})).toEqual([-5, -10, 1, -8, 3]);
-        });
-
-        it("should return new array with elements which callback returns", () => {
             expect(code(arr, function(item, i, array) {return item*i+array.length;})).toEqual([5, 0, 11, 2, 13]);
         });
     });
@@ -72,12 +51,9 @@ describe('Ex6. JS Array methods', () => {
     task('06', code => {
         const arr = [1, -5, 3, -1, 2];
 
-        it("should return single output value which returns callback after all iterations throughout array", () => {
-            expect(code(arr, function(sum, current) {return sum + current;})).toBe(0);
-        });
-
-        it("should return single output value which returns callback after all iterations throughout array", () => {
-            expect(code(arr, function(prev, item, i, array) {return prev*item*i+array.length;}, 7)).toBe(2805);
+        it("should return single output value which callback returns after all iterations throughout array", () => {
+            expect(code(arr, function(sum, current) {return sum + current;})).toEqual(0);
+            expect(code(arr, function(prev, item, i, array) {return prev*item*i+array.length;}, 7)).toEqual(2805);
         });
     });
 });
