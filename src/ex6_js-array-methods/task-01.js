@@ -2,8 +2,11 @@
 
 function sliceArr(arr, start, end) {
     let result = [];
-    let endpos = end >= arr.length ? arr.length-1 : end;
-    for(let i=start; i<endpos; i++) {
+    let startpos = start === undefined ? 0 : start;
+    if(startpos < 0) startpos += arr.length;
+    let endpos = (end === undefined || end >= arr.length) ? arr.length : end;
+    if(endpos < 0) endpos += arr.length;
+    for(let i=startpos; i<endpos; i++) {
         result.push(arr[i]);
     }
     return result;
