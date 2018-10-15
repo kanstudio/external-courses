@@ -52,8 +52,8 @@ describe('Ex6. JS Array methods', () => {
         const arr = [1, -5, 3, -1, 2];
 
         it("should return single output value which callback returns after all iterations throughout array", () => {
-            expect(code(arr, function(sum, current) {return sum + current;})).toEqual(0);
-            expect(code(arr, function(prev, item, i, array) {return prev*item*i+array.length;}, 7)).toEqual(2805);
+            expect(code(arr, function(sum, current) {return sum + current;})).toBe(0);
+            expect(code(arr, function(prev, item, i, array) {return prev*item*i+array.length;}, 7)).toBe(2805);
         });
     });
 });
