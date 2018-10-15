@@ -5,7 +5,7 @@ describe('Ex6. JS Array methods', () => {
         const arr = ['a', 'b', 'c', 'd', 'e'];
 
         it("should copy from element 1 and to element 4 (without including)", () => {
-            expect(code(arr, 1, 4).toBe(['e', 'c', 'd']));
+            expect(code(arr, 1, 4)).toBe(['e', 'c', 'd']);
         });
     });
 });
