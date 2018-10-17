@@ -1,5 +1,7 @@
 p {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, verdana
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, verdana;
+    color: #fff;
+    font-weight: 600;
 }
 .text1 {
     font-family: 'Franklin Gothic Medium', sans-serif;
@@ -18,4 +20,10 @@ p {
 }
 .text6 {
     font-family: 'Times New Roman', sans-serif;
+}
+body {
+    background-image: url(image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
