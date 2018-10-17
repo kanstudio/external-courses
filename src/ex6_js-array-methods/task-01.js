@@ -13,4 +13,3 @@ function sliceArr(arr, start, end) {
 }
 
 module.exports = sliceArr;
-
