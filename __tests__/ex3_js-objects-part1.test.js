@@ -1,4 +1,4 @@
-const task = require('~utils').createTask('ex3_js-objects-part1');
+const {task} = require('~utils')('ex3_js-objects-part1');
 
 describe('Ex3. JS Objects Part 1', () => {
     task('02', code => {
