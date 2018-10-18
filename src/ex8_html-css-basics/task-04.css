@@ -1,0 +1,32 @@
+div {
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+}
+.block1 {
+    font-size: 14px;
+    background: #ddd;
+}
+.block2 {
+    width: 4vw;
+    font-family: 'Roboto';
+    font-size: 15pt;
+    font-weight: 600;
+    background: rgb(100,120,140);
+}
+.block3 {
+    width: 50%;
+    font-size: 80%;
+    background: coral;
+}
+.block4 {
+    width: auto;
+    font-size: 1.2em;
+    background: rgba(100,120,140, 0.5);
+}
+.block5 {
+    font-size: 1.5rem;
+    color: #fff;
+    background: url(kitten.jpg) center;
+    background-size: cover;
+}

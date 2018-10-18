@@ -1,0 +1,13 @@
+div {
+    width: 400px;
+    height: 200px;
+    background: #00b050;
+}
+table {
+    margin: 10px 0;
+    border: 1px solid #333;
+}
+td {
+    padding: 3px;
+    border: 1px solid #333;
+}
