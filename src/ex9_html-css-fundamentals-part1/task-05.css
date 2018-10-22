@@ -1,0 +1,46 @@
+div {
+    margin-bottom: 40px;
+}
+.method-1 {
+    position: relative;
+    width: 397px;
+    height: 200px;
+    background: #60B88D;
+}
+.method-1::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 397px;
+    height: 200px;
+    background: #90CDAF;
+    z-index: -1;
+}
+.method-1::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 397px;
+    height: 200px;
+    background: #BFE3D1;
+    z-index: -2;
+}
+.method-2 {
+    width: 392px;
+    height: 195px;
+    padding: 5px 0 0 5px;
+    background: #60B88D;
+}
+.method-2 > div {
+    opacity: 0.639;
+}
+.method-3 {
+    width: 397px;
+    height: 200px;
+    background: #60B88D;
+    box-shadow: 5px 5px 0 0px #90CDAF, 10px 10px 0 0px #BFE3D1;
+}
