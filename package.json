@@ -4,8 +4,9 @@
   "description": "WebPurple JavaScript course template",
   "scripts": {
     "test": "jest || true",
-    "lint": "eslint **/*.js",
-    "test:ci": "jest"
+    "lint": "eslint --ext .js ./src/ || true",
+    "test:ci": "jest",
+    "lint:ci": "eslint --ext .js ./src/"
   },
   "repository": {
     "type": "git",
