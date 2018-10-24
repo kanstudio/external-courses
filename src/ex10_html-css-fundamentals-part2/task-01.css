@@ -20,6 +20,9 @@ table td {
     margin: 0;
     text-align: center;
 }
+.list-none {
+    list-style-type: none;
+}
 label {
     display: block;
     margin: 16px 0;

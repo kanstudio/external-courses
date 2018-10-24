@@ -1,0 +1,45 @@
+body {
+    font-family: 'Times New Roman', Arial, sans-serif;
+    box-sizing: border-box;
+}
+*,
+:focus,
+:active,
+:hover {
+    outline: none;
+}
+.header {
+    background: #B5DCB3;
+    overflow: hidden;
+}
+.footer {
+    margin-top: -2px;
+    background: #B5DCB3;
+}
+h1 {
+    float: left;
+}
+.menu {
+    float: right;
+    width: 20%;
+    font-weight: 600;
+    line-height: 80px;
+    border-left: 1px solid #fff;
+}
+iframe {
+    width: 100%;
+    margin: 2px 2px 0 0;
+    background: #eee;
+}
+ul {
+    display: block;
+    float: left;
+    width: 300px;
+    height: 200px;
+    margin: 0 3px 0 0;
+    padding: 40px;
+    background: #aaa;
+}
+.page {
+    display: inline-block;
+}
