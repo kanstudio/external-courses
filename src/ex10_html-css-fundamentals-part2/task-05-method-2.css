@@ -1,0 +1,31 @@
+table:last-child {
+    margin: 40px;
+    font-family: Arial, serif;
+    font-size: 15px;
+    color: #758697;
+}
+table:last-child th {
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 6px;
+}
+table:last-child td {
+    padding: 16px 14px 17px;
+}
+table:last-child tr:nth-child(even) {
+    background: #F2F6FA;
+}
+table:last-child tr:nth-child(odd) {
+    background: #E8EDF4;
+}
+table:last-child tr:first-child {
+    background: #E3EAF3;
+}
+table:last-child tr:hover {
+    background: #E2E5E9;
+    cursor: default;
+}
+table:last-child td:first-child {
+    text-transform: capitalize;
+}
