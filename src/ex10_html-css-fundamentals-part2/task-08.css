@@ -437,8 +437,9 @@ main .articles article p {
     width: 160px;
   }
   main .background {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 514px, 0 665px);
-    clip-path: polygon(0 0, 100% 0, 100% 514px, 0 665px);
+    /* -webkit-clip-path: polygon(0 0, 100% 0, 100% 514px, 0 665px);
+    clip-path: polygon(0 0, 100% 0, 100% 514px, 0 665px); */
+    background-image: url(task-08/img/bg-main-tablet.png);
   }
   main .slider {
     display: none;
@@ -447,6 +448,7 @@ main .articles article p {
 @media (max-width: 830px) {
   main header {
     width: 95%;
+    margin: 202px auto 0;
   }
   main header h1 {
     font-size: 40px;
@@ -465,7 +467,8 @@ main .articles article p {
     margin-top: 285px;
   }
   main .background {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 514px, 0 665px);
-    clip-path: polygon(0 0, 100% 0, 100% 485px, 0 600px);
+    /* -webkit-clip-path: polygon(0 0, 100% 0, 100% 514px, 0 665px);
+    clip-path: polygon(0 0, 100% 0, 100% 514px, 0 665px); */
+    background-position: center -85px;
   }
 }
