@@ -1,62 +1,102 @@
 * {
     box-sizing: border-box; 
   }
-  
-  .page-wrap {
-    width: 800px;
-    margin: 20px auto;
-  }
-  
-  .main-story {
-    position: relative;
-    margin: 0 0 25px 0;
-  }
-  
-  img {
-    display: block; 
-  }
-  
-  a {
-    color: lightblue;
-  }
-  
-  .story-intro {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    padding: 20px;
-    color: white;
-  }
-  
+.page-wrap {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+.main-story {
+  position: relative;
+  margin: 0 0 25px 0;
+}
+img {
+  display: block;
+  width: 100%;
+}
+a {
+  color: lightblue;
+}
+.story-intro {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 20px;
+  color: white;
+}
+h1 {
+   font-size: 4em;
+}
+h1, h2 {
+  margin: 0 0 10px 0;
+}
+.story-intro h1 {
+  font-size: 2.5em; 
+}
+.story-intro p {
+  margin: 0;
+}
+.sub-stories {
+  overflow: hidden;
+  margin: 0 0 25px 0;
+}
+.sub-story {
+  float: left;
+  width: 250px;
+  margin-right: 25px;
+  position: relative;
+  font-size: 80%;
+}
+.last {
+  margin-right: 0;
+}
+@media (max-width: 830px) {
   h1 {
-     font-size: 4em;
+    font-size: 6vw;
   }
-  h1, h2 {
-    margin: 0 0 10px 0;
-  }
-  
   .story-intro h1 {
-    font-size: 2.5em; 
+    font-size: 5vw;
   }
-  .story-intro p {
-    margin: 0;
-  }
-  
   .sub-stories {
-    overflow: hidden;
-    margin: 0 0 25px 0;
+    display: flex;
   }
-  
+  .main-story {
+    margin: 0 0 12px 0;
+  }
   .sub-story {
-    float: left;
-    width: 250px;
-    margin-right: 25px;
-    position: relative;
-    font-size: 80%;
+    margin-right: 12px;
   }
-  
   .last {
     margin-right: 0;
   }
+  .story-intro {
+    padding: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .sub-stories {
+    flex-wrap: wrap;
+  }
+  .sub-story,
+  .last {
+    margin-bottom: 12px;
+    margin-right: 12px;
+    width: calc(50% - 6px);
+  }
+  .sub-story:nth-child(even) {
+    margin-right: 0;
+  }
+}
+@media (max-width: 278px) {
+  .sub-stories {
+    flex-wrap: wrap;
+  }
+  .sub-story,
+  .last {
+    margin-bottom: 12px;
+    margin-right: 0;
+    width: 100%;
+  }
+}
