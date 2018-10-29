@@ -74,6 +74,7 @@
     -webkit-mask-image: none;
     mask-image: none;
     animation: shape 5s linear infinite;
+    animation-test-property: error;
 }
 .shape::after {
     content: '';
