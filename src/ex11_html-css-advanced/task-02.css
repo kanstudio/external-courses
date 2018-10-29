@@ -3,7 +3,8 @@
 }
 .animation {
     width: 50%;
-    margin: 50px auto;
+    margin: 70px auto;
+    overflow: hidden;
 }
 .loader {
     position: relative;
@@ -51,4 +52,85 @@
     100% {
         margin: 20px 0 20px calc(100% - 70px);
     }
+}
+.shape {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    background: linear-gradient(220deg, rgba(183, 0, 255, 0.8), rgba(183, 0, 255, 0) 70%),
+                linear-gradient(130deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70%),
+                linear-gradient(340deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70%);
+    overflow: hidden;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    animation: masking 3s linear infinite;
+    -webkit-clip-path: none;
+    clip-path: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+    animation: shape 5s linear infinite;
+}
+.shape::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(closest-side, rgb(218, 214, 67), rgb(226, 100, 123), rgb(106, 185, 222));
+    animation: shape2 5s linear infinite;
+    text-align: center;
+}
+@keyframes shape {
+    0% {
+        border-radius: 50%;
+        transform: rotate(0deg);
+    }
+    25% {
+        background: linear-gradient(220deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 50%),
+                    linear-gradient(130deg, rgba(255, 238, 0, 0.8), rgba(255, 238, 0, 0) 50%),
+                    linear-gradient(340deg, rgba(165, 2, 157, 0.8), rgba(165, 2, 157, 0) 50%);
+        border-radius: 0%;
+    }
+    50% {
+        background: linear-gradient(220deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 50%),
+                    linear-gradient(130deg, rgba(255, 238, 0, 0.8), rgba(255, 238, 0, 0) 50%),
+                    linear-gradient(340deg, rgba(165, 2, 157, 0.8), rgba(165, 2, 157, 0) 50%);
+        width: 100px;
+        height: 50px;
+    }
+    75% {
+        background: linear-gradient(220deg, rgba(183, 0, 255, 0.8), rgba(183, 0, 255, 0) 70%),
+                    linear-gradient(130deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70%),
+                    linear-gradient(340deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70%);
+        -webkit-mask-image: url(task-01-star.png);
+        mask-image: url(task-01-star.png);
+    }
+    100% {
+        border-radius: 50%;
+        transform: rotate(360deg);
+    } 
+}
+@keyframes shape2 {
+    0% {
+        opacity: 0;
+    }
+    25% {        
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    } 
 }
