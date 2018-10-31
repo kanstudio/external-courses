@@ -225,8 +225,7 @@ a:visited {
     display: block;
     flex: 1 1 100px;
 }
-.history-list > li time {
-    display: block;
+.history-list > li .history-time {
     margin-top: 8px;
 }
 
