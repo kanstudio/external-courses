@@ -41,11 +41,15 @@ a:visited {
     font-family: 'Proxima Nova Rg', Arial, sans-serif;
     font-size: 13px;
     line-height: 26px;
+    color: #78829d;
 }
 .vertical-menu > li:hover {
     color: #fff;
     background-color: #15a4fa;
     cursor: pointer;
+}
+.vertical-menu > li:hover span {
+    color: #fff;
 }
 
 /********** header **********/
@@ -169,6 +173,24 @@ a:visited {
     color: #fff;
     background-color: #df5e3e;
 }
+.books-menu {
+    padding-bottom: 12px;
+}
+.genres-menu {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding: 16px 0 13px;
+}
+.genres-menu li {
+    display: list-item;
+    padding: 6px 15px 6px 25px;
+    font-size: 18px;
+}
+.genres-menu li:nth-child(1) {color: #e64c66;}
+.genres-menu li:nth-child(2) {color: #ffab00;}
+.genres-menu li:nth-child(3) {color: #00bfdd;}
+.genres-menu li:nth-child(4) {color: #7874cf;}
+.genres-menu li:hover {color: #fff;}
 
 /********** content **********/
 main {
