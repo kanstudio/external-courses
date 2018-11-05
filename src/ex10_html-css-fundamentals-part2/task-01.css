@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+*,
+:focus,
+:active,
+:hover {
+    outline: none;
+}
+table {
+    width: 100%;
+    border: 1px solid #000;
+}
+table th,
+table td {
+    border: 1px solid #000;
+}
+.table-header {
+    margin: 0;
+    text-align: center;
+}
+.list-none {
+    list-style-type: none;
+}
+label {
+    display: block;
+    margin: 16px 0;
+}
+p label {
+    display: inline;
+    margin: 0;
+}

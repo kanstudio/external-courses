@@ -1,0 +1,31 @@
+#table-method-1 {
+    margin: 40px;
+    font-family: Arial, serif;
+    font-size: 15px;
+    color: #758697;
+}
+#table-method-1 th {
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 6px;
+}
+#table-method-1 td {
+    padding: 16px 14px 17px;
+}
+.table-row-header {
+    background: #E3EAF3;
+}
+.table-row-odd {
+    background: #F2F6FA;
+}
+.table-row-even {
+    background: #E8EDF4;
+}
+#table-method-1 tr:hover {
+    background: #E2E5E9;
+    cursor: default;
+}
+.table-customer {
+    text-transform: capitalize;
+}

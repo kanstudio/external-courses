@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+*,
+:focus,
+:active,
+:hover {
+    outline: none;
+}
+form {
+    margin-bottom: 40px;
+}
+[type="submit"] {
+    position: relative;
+    top: 2px;
+    font-size: 17px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+[type="submit"]:hover {
+    top: 3px;
+}
