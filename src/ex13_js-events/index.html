@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex13_js-events</title>
+    <link rel="stylesheet" href="assets/fonts/FontAwesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ProximaNova.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="page-top">
+        <nav class="toplinks">
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Our Support</a></li>
+            </ul>
+        </nav>
+
+        <nav class="profile">
+            <div class="profile-user">
+                <div class="profile-userpic">
+                    <img src="assets/img/userpic.jpg" alt="John Doe">
+                </div>
+                <span class="profile-username">John Doe</span>
+                <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+            </div>
+            <ul class="vertical-menu">
+                <li class="profile-edit">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <span>Edit Profile</span>
+                </li>
+                <li class="profile-signout">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span>Sign Out</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="sidebar">
+        <aside>
+            <a class="button-addbook" href="#">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                <span>Add a book</span>
+            </a>
+        </aside>
+        <aside>
+            <ul class="vertical-menu accordion-menu books-menu">
+                <li class="menu-active">
+                    <div class="books-menu-chapter">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <span>Now Reading</span>
+                    </div>
+                    <ul class="books-menu-submenu">
+                        <li><span>Submenu item 1</span></li>
+                        <li><span>Submenu item 2</span></li>
+                        <li><span>Submenu item 3</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="books-menu-chapter">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        <span>Browse</span>
+                    </div>
+                    <ul class="books-menu-submenu">
+                        <li><span>Submenu item 1</span></li>
+                        <li><span>Submenu item 2</span></li>
+                        <li><span>Submenu item 3</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="books-menu-chapter">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>Buy Books</span>
+                    </div>
+                    <ul class="books-menu-submenu">
+                        <li><span>Submenu item 1</span></li>
+                        <li><span>Submenu item 2</span></li>
+                        <li><span>Submenu item 3</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="books-menu-chapter">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <span>Favourite Books</span>
+                    </div>
+                    <ul class="books-menu-submenu">
+                        <li><span>Submenu item 1</span></li>
+                        <li><span>Submenu item 2</span></li>
+                        <li><span>Submenu item 3</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="books-menu-chapter">
+                        <i class="fa fa-th-list" aria-hidden="true"></i>
+                        <span>Whishlist</span>
+                    </div>
+                    <ul class="books-menu-submenu">
+                        <li><span>Submenu item 1</span></li>
+                        <li><span>Submenu item 2</span></li>
+                        <li><span>Submenu item 3</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="books-menu-chapter">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <span>History</span>
+                    </div>
+                    <ul class="books-menu-submenu">
+                        <li><span>Submenu item 1</span></li>
+                        <li><span>Submenu item 2</span></li>
+                        <li><span>Submenu item 3</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <aside>
+            <ul class="vertical-menu genres-menu">
+                <li><span>Must Read Titles</span></li>
+                <li><span>Best Of List</span></li>
+                <li><span>Classic Novels</span></li>
+                <li><span>Non Fiction</span></li>
+            </ul>
+        </aside>
+        <aside>
+            <ul class="history-list">
+                <li>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <span>You added <b>Fight Club</b> by <b>Chuck Palahniuk</b> to your <b>Must Read Titles</b>.<span
+                            class="history-time">24 minutes ago</span></span>
+                </li>
+                <li>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <span>You added <b>The Trial</b> by <b>Franz Kafka</b> to your <b>Must Read Titles</b>.<span class="history-time">48
+                            minutes ago</span></span>
+                </li>
+            </ul>
+        </aside>
+    </section>
+
+    <main role="main">
+        <h1>Browse Available Books</h1>
+
+        <div class="filter-search">
+            <ul class="filter">
+                <li class="active" data-filter="all">All Books</li>
+                <li data-filter="recent">Most Recent</li>
+                <li data-filter="popular">Most Popular</li>
+                <li data-filter="free">Free Books</li>
+            </ul>
+            <form class="search-field" action="#" method="POST">
+                <input type="text" name="search" placeholder="Enter Keywords">
+                <button type="submit" name="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+
+        <section class="books">
+            <article class="book" data-time="2018-11-12T11:58:05.341Z" data-sells="98" data-price="100">
+                <img class="book-image" src="assets/img/book-01.jpg" alt="Jewels of Nizam">
+                <h2 class="book-title">Jewels of Nizam</h2>
+                <p class="book-author">by <span>Geeta Devi</span></p>
+                <div class="book-rating" data-rating="10">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2018-11-11T11:58:05.341Z" data-sells="18" data-price="0">
+                <img class="book-image" src="assets/img/book-02.jpg" alt="Cakes & Bakes">
+                <h2 class="book-title">Cakes & Bakes</h2>
+                <p class="book-author">by <span>Sanjeev Kapoor</span></p>
+                <div class="book-rating" data-rating="10">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2018-10-10T11:58:05.341Z" data-sells="48" data-price="90">
+                <img class="book-image" src="assets/img/book-03.jpg" alt="Jamie’s Kitchen">
+                <h2 class="book-title">Jamie’s Kitchen</h2>
+                <p class="book-author">by <span>Jamie Oliver</span></p>
+                <div class="book-rating" data-rating="9">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2018-02-12T11:58:05.341Z" data-sells="36" data-price="110">
+                <img class="book-image" src="assets/img/book-04.jpg" alt="Inexpensive Family Meals">
+                <h2 class="book-title">Inexpensive Family Meals</h2>
+                <p class="book-author">by <span>Simon Holst</span></p>
+                <div class="book-rating" data-rating="8">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2018-11-09T11:58:05.341Z" data-sells="51" data-price="80">
+                <img class="book-image" src="assets/img/book-05.jpg" alt="Paleo Slow Cooking">
+                <h2 class="book-title">Paleo Slow Cooking</h2>
+                <p class="book-author">by <span>Chrissy Gower</span></p>
+                <div class="book-rating" data-rating="9">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2018-11-12T12:58:05.341Z" data-sells="11" data-price="0">
+                <img class="book-image" src="assets/img/book-06.jpg" alt="Cook Like an Italian">
+                <h2 class="book-title">Cook Like an Italian</h2>
+                <p class="book-author">by <span>Tobie Puttock</span></p>
+                <div class="book-rating" data-rating="8">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2018-11-11T17:58:05.341Z" data-sells="76" data-price="0">
+                <img class="book-image" src="assets/img/book-07.jpg" alt="Suneeta Vaswani">
+                <h2 class="book-title">Suneeta Vaswani</h2>
+                <p class="book-author">by <span>Geeta Devi</span></p>
+                <div class="book-rating" data-rating="10">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2018-11-12T10:58:05.341Z" data-sells="25" data-price="30">
+                <img class="book-image" src="assets/img/book-08.jpg" alt="Jamie Does">
+                <h2 class="book-title">Jamie Does</h2>
+                <p class="book-author">by <span>Jamie Oliver</span></p>
+                <div class="book-rating" data-rating="8">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2017-11-12T11:58:05.341Z" data-sells="74" data-price="100">
+                <img class="book-image" src="assets/img/book-09.jpg" alt="Jamie’s italy">
+                <h2 class="book-title">Jamie’s italy</h2>
+                <p class="book-author">by <span>Jamie Oliver</span></p>
+                <div class="book-rating" data-rating="10">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2016-11-12T11:58:05.341Z" data-sells="44" data-price="80">
+                <img class="book-image" src="assets/img/book-10.jpg" alt="Vegetables Cookbook">
+                <h2 class="book-title">Vegetables Cookbook</h2>
+                <p class="book-author">by <span>Matthew Biggs</span></p>
+                <div class="book-rating" data-rating="7">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2018-11-12T11:58:05.341Z" data-sells="98" data-price="100">
+                <img class="book-image" src="assets/img/book-01.jpg" alt="Jewels of Nizam">
+                <h2 class="book-title">Jewels of Nizam</h2>
+                <p class="book-author">by <span>Geeta Devi</span></p>
+                <div class="book-rating" data-rating="10">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+            </article>
+            <article class="book" data-time="2018-11-11T11:58:05.341Z" data-sells="18" data-price="0">
+                <img class="book-image" src="assets/img/book-02.jpg" alt="Cakes & Bakes">
+                <h2 class="book-title">Cakes & Bakes</h2>
+                <p class="book-author">by <span>Sanjeev Kapoor</span></p>
+                <div class="book-rating" data-rating="10">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="page-bottom">
+        <nav>
+            <ul>
+                <li class="button-settings"><i class="fa fa-question-circle" aria-hidden="true"></i></li>
+                <li class="button-help"><i class="fa fa-cog" aria-hidden="true"></i></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <div class="popup" data-view="hide">
+        <div class="popup-wrap">
+            <div class="popup-close"><i class="fa fa-times-circle" aria-hidden="true"></i></div>
+            <div class="popup-content">
+                <h2>Add a book</h2>
+                <form action="#" method="" class="addbook-form">
+                    <label>
+                        <span>Title</span>
+                        <input type="text" value="" name="title" required>
+                    </label>
+                    <label>
+                        <span>Author</span>
+                        <input type="text" value="" name="author" required>
+                    </label>
+                    <label>
+                        <span>Image</span>
+                        <input type="file" value="" disabled name="image">
+                    </label>
+                    <label>
+                        <span>Price</span>
+                        <input type="number" value="" min="0" name="price" required>
+                    </label>
+                    <button type="submit" class="popup-addbook">Add</button>
+                    <div class="popup-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="task-01.js"></script>
+    <script src="task-02.js"></script>
+    <script src="task-03.js"></script>
+    <script src="task-04.js"></script>
+</body>
+
+</html>
