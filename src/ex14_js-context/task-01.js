@@ -37,7 +37,7 @@ let Calculator = (function() {
         return this.x;
     }
 
-    function setState(y) {
+    function setState(y=this.x) {
         this.x = y;
         return this;
     }
