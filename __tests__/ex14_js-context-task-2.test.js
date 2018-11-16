@@ -20,7 +20,7 @@ describe('Ex14. JS Context. Task 2', () => {
         });
 
         it('should return proper initial values', () => {
-            expect(code.getErrorsLeft().toString()).toBe(6);
+            expect(code.getErrorsLeft().toString()).toBe('6');
             expect(code.getWrongSymbols().toString().length).toBe(0);
         });
 
@@ -33,13 +33,13 @@ describe('Ex14. JS Context. Task 2', () => {
 
         it('should decrement errorsLeft counter if user guessed wrong letter', () => {
             code.guess('a');
-            expect(code.getErrorsLeft().toString()).toBe(5);
+            expect(code.getErrorsLeft().toString()).toBe('5');
         });
 
         it('should add wrong letter to wrong symbols array', () => {
             code.guess('a');
             code.guess('k');
-            expect(code.getWrongSymbols().toString()).toEqual(['a', 'k']);
+            expect(code.getWrongSymbols().toString()).toBe(['a', 'k']);
         });
     });
 });
