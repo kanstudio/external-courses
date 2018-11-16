@@ -39,7 +39,7 @@ describe('Ex14. JS Context. Task 2', () => {
         it('should add wrong letter to wrong symbols array', () => {
             code.guess('a');
             code.guess('k');
-            expect(code.getWrongSymbols().toString()).toBe(['a', 'k']);
+            expect(code.getWrongSymbols().toString()).toEqual(['a', 'k']);
         });
     });
 });
