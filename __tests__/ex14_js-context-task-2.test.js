@@ -41,5 +41,19 @@ describe('Ex14. JS Context. Task 2', () => {
             code.guess('k');
             expect(code.getWrongSymbols().toString()).toEqual(['a', 'k']);
         });
+
+        it('should support method chaining', () => {
+            expect(code.guess('c').getErrorsLeft().guess('b').getWrongSymbols()
+            .getGuessedString().toString()).toBe('__b______');
+        });
+
+        it('should add all used letters to all symbols array', () => {
+            code.guess('w');
+            code.guess('e');
+            code.guess('u');
+            code.guess('x');
+            code.guess('z');
+            expect(code.getStatus().toString()).toEqual(['w', 'e', 'u', 'x', 'z']);
+        });
     });
 });
