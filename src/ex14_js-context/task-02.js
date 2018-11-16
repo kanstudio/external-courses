@@ -62,11 +62,11 @@ function Hangman(word) {
         return this;
     };
 
-    this.getGuessedString.toString = function() {
+    this.toString = function() {
         return this.state.join('');
     };
 
-    this.getGuessedString.valueOf = function() {
+    this.valueOf = function() {
         return this.state.join('');
     };
 
@@ -81,4 +81,4 @@ function Hangman(word) {
     };
 }
 
-module.exports = Hangman;
+module.exports = new Hangman('webpurple');
