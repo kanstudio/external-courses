@@ -81,7 +81,7 @@ function Hangman(word) {
 
     this.getWrongSymbols = function() {
         console.log(this.wrongSymbols);
-        this.output = this.wrongSymbols.join('');
+        this.output = this.wrongSymbols;
         return this;
     };
 
