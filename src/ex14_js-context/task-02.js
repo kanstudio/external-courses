@@ -73,6 +73,14 @@ function Hangman(word) {
         return this;
     };
 
+    this.toString = function() {
+        return this.state.join('');
+    };
+
+    this.valueOf = function() {
+        return this.state.join('');
+    };
+
     this.getErrorsLeft = function() {
         console.log(this.errorsLeft);
         this.output += this.errorsLeft + '\n';
