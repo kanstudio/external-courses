@@ -85,4 +85,4 @@ function Hangman(word) {
     this.startAgain(word);
 }
 
-module.exports = Hangman;
+module.exports = new Hangman('webpurple');
