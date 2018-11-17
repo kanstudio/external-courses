@@ -1,13 +1,6 @@
 'use strict';
 
 function Hangman(word) {
-    this.word = word;
-    this.state = new Array(word.length).fill('_');
-    this.wrongSymbols = [];
-    this.totalSymbols = [];
-    this.errorsLeft = 6;
-    this.output = '';
-
     this.guess = function(letter) {
         if(this.state.join('') === this.word || this.errorsLeft <= 0) {
             console.log('Game over');
@@ -88,6 +81,8 @@ function Hangman(word) {
     this.toString = function() {
         return this.output;
     };
+
+    this.startAgain(word);
 }
 
-module.exports = new Hangman('webpurple');
+module.exports = Hangman;

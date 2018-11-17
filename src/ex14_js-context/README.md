@@ -98,7 +98,7 @@ hangman.guess('b') // "webp___p_e"
 
 ```javascript
 hangman.startAgain('webpurple')
-  .guess(w) // "w________"
+  .guess('w') // "w________"
   .getStatus(); // "w_______ | errors left 6"
 ```
 
