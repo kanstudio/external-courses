@@ -6,18 +6,18 @@ function Hangman(word) {
             console.log('Game over');
             return this;
         }
-        if(!~letter.search(/\w/)) {
+        if(letter.search(/\w/) === -1) {
             console.log('Wrong input');
             return this;
         }
         let phrase = new RegExp(letter, 'i');
-        if(~this.totalSymbols.join('').search(phrase)) {
+        if(this.totalSymbols.join('').search(phrase) !== -1) {
             console.log('This letter already was');
             return this;
         }
         this.totalSymbols.push(letter.toLowerCase());
-        if(~this.word.search(phrase)) {
-            this.state = this.state.map((l, i) => ~this.word[i].search(phrase) ? this.word[i] : l);
+        if(this.word.search(phrase) !== -1) {
+            this.state = this.state.map((l, i) => this.word[i].search(phrase) !== -1 ? this.word[i] : l);
             if(this.state.join('') === this.word) {
                 console.log(this.state.join('') + ' | You won!');
             }
