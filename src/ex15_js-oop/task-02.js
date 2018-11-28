@@ -42,7 +42,15 @@
     var tv4 = new TV('TV 4', 350);
 
     function Room() {
-        this.consumption = 0;
+        Object.defineProperty(this, 'consumption', {
+            get: function () {
+                return this.devices.reduce((prev, dev) => 
+                    dev.state ? prev += dev.power : prev, 0);
+            },
+            set: function (val) {
+                return false;
+            }
+        });
         this.devices = [];
     }
 
@@ -64,16 +72,6 @@
     };
 
     let room = new Room();
-
-    Object.defineProperty(room, 'consumption', {
-        get: function () {
-            return this.devices.reduce((prev, dev) => 
-                dev.state ? prev += dev.power : prev, 0);
-        },
-        set: function (val) {
-            return false;
-        }
-    });
 
     room.addDevice(iron1).addDevice(iron2).addDevice(iron3).addDevice(tv1)
         .addDevice(tv2).addDevice(tv3).addDevice(tv4);
