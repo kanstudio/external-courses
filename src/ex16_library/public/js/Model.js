@@ -7,9 +7,6 @@ export class Model extends EventEmitter {
         super();
         this._books = data.books || [];
         this._book = data.book || { server: {}, render: {} };
-        this._filterState = data.filter || 'all';
-        this._searchPhrase = data.search || '';
-        this._selectedMenuGroup = data.selectedMenuGroup || 0;
 
         this.err = new Errors();
         this.calc = new Calc();
@@ -78,6 +75,47 @@ export class Model extends EventEmitter {
             book[prop] = this._book.server[prop];
         }
         book.totalRate = this.calc.average(book.rating).toFixed(1);
+    }
+    
+    _updateBook(data) {
+        const newData = {
+            id: data.id ? data.id : this._book.server.id,
+            title: data.title
+                ? data.title
+                : this._book.server.title,
+            image: data.image ? data.image : this._book.server.src,
+            author: data.author ? data.author : this._book.server.author,
+            description: data.description
+                ? data.description
+                : this._book.server.description,
+            keywords: data.keywords
+                ? data.keywords
+                : this._book.render.keywords,
+            rating: data.rating
+                ? JSON.stringify(data.rating)
+                : JSON.stringify(this._book.server.rating),
+            price: data.price ? data.price : this._book.server.price,
+            created_at: data.created_at
+                ? data.created_at
+                : this._book.server.created_at,
+            published_at: data.published_at
+                ? data.published_at
+                : this._book.server.published_at,
+            votes: data.votes
+                ? data.votes
+                : this._book.server.votes
+        };
+        const formData = this._buildFormData(newData);
+
+        return fetch(`/api/books/${data.id}`, {
+            method: 'put',
+            body: formData
+        })
+            .then(res => this.err.resJSON(res))
+            .then(book => {
+                this._setCurrentBookFromServer(book);
+                this._updateCurrentBookInBooks();
+            });
     }
 
     _sendQuery({ filter, search }, field) {
@@ -199,47 +237,6 @@ export class Model extends EventEmitter {
                     book.totalRate = this.calc.average(book.rating).toFixed(1);
                 });
                 this.emit('bookAddedFromPopup', book);
-            });
-    }
-
-    _updateBook(data) {
-        const newData = {
-            id: data.id ? data.id : this._book.server.id,
-            title: data.title
-                ? data.title
-                : this._book.server.title,
-            image: data.image ? data.image : this._book.server.src,
-            author: data.author ? data.author : this._book.server.author,
-            description: data.description
-                ? data.description
-                : this._book.server.description,
-            keywords: data.keywords
-                ? data.keywords
-                : this._book.render.keywords,
-            rating: data.rating
-                ? JSON.stringify(data.rating)
-                : JSON.stringify(this._book.server.rating),
-            price: data.price ? data.price : this._book.server.price,
-            created_at: data.created_at
-                ? data.created_at
-                : this._book.server.created_at,
-            published_at: data.published_at
-                ? data.published_at
-                : this._book.server.published_at,
-            votes: data.votes
-                ? data.votes
-                : this._book.server.votes
-        };
-        const formData = this._buildFormData(newData);
-
-        return fetch(`/api/books/${data.id}`, {
-            method: 'put',
-            body: formData
-        })
-            .then(res => this.err.resJSON(res))
-            .then(book => {
-                this._setCurrentBookFromServer(book);
-                this._updateCurrentBookInBooks();
             });
     }
 
