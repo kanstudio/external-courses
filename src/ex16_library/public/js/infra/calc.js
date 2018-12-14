@@ -5,7 +5,7 @@ export class Calc {
         if(!arr.length) return 0;
         let sum = 0;
         for (let i = 0; i < arr.length; i++) {
-            if (typeof arr[i] !== 'number' || isNaN(arr[i])) return 0;
+            if (typeof arr[i] !== 'number' || isNaN(arr[i])) return NaN;
             sum += arr[i];
         }
         return sum / arr.length;

@@ -8,6 +8,7 @@ const express = require('express');
 const db = require('json-server');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const mime = require('mime');
 
 const morgan = require('morgan');
 
@@ -26,7 +27,7 @@ app.use(db.rewriter({
 /* ----- image upload ----- */
 const storage = multer.diskStorage({
     destination: path.resolve(`${__dirname}/${PUBLIC_PATH}/img/uploads/`),
-    filename: function (req, file, cb) {
+    filename: (req, file, cb) => {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
@@ -34,18 +35,16 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage,
     limits: { fileSize: 1000000 },
-    fileFilter: function (req, file, cb) {
+    fileFilter: (req, file, cb) => {
         checkFileType(file, cb);
     }
 }).single('image');
 
-function checkFileType(file, cb) {
-    const filetypes = /jpeg|jpg|png|gif/;
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = filetypes.test(file.mimetype);
+mime.define({'image/web': ['jpg', 'jpeg', 'gif', 'png']}, true);
 
-    if (mimetype && extname) return cb(null, true);
-    cb('Error: Images only!');
+function checkFileType(file, cb) {
+		if (mime.getType(path.extname(file.originalname)) === 'image/web') return cb(null, true);
+		cb(new Error('Error: Images only!'));
 }
 
 function clearDBObject(obj, type) {
@@ -84,13 +83,12 @@ app.post('/api/books', (req, res, next) => {
             req.body.description = req.body.description
                 ? req.body.description.trim()
                 : '';
-            let keywords = req.body.keywords.trim();
-            if (keywords) {
-                keywords = keywords.replace(/\s+/g, ' ');
-                keywords = keywords.split(',').map(str => str.trim());
-                keywords = keywords.filter(str => str !== '');
-            } else keywords = [];
-            req.body.keywords = keywords;
+            req.body.keywords = req.body.keywords.trim()
+                ? req.body.keywords.trim()
+                    .replace(/\s+/g, ' ')
+                    .split(',').map(str => str.trim())
+                    .filter(str => str !== '')
+                : [];
             req.body.rating = [];
             req.body.price = String(req.body.price)
                 ? +req.body.price
@@ -130,13 +128,12 @@ app.put('/api/books/:id', (req, res, next) => {
             req.body.description = req.body.description
                 ? req.body.description.trim()
                 : '';
-            let keywords = req.body.keywords.trim();
-            if (keywords) {
-                keywords = keywords.replace(/\s+/g, ' ');
-                keywords = keywords.split(',').map(str => str.trim());
-                keywords = keywords.filter(str => str !== '');
-            } else keywords = [];
-            req.body.keywords = keywords;
+            req.body.keywords = req.body.keywords.trim()
+                ? req.body.keywords.trim()
+                    .replace(/\s+/g, ' ')
+                    .split(',').map(str => str.trim())
+                    .filter(str => str !== '')
+                : [];
             req.body.rating = req.body.rating
                 ? JSON.parse(req.body.rating)
                 : [];
